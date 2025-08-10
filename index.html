@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSphere Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-card">
+            <div class="main-info">
+                <div class="temp">
+                    <span class="temperature">--</span>
+                    <span class="unit-switcher">
+                        <button class="active" data-unit="c">°C</button>
+                        <button data-unit="f">°F</button>
+                    </span>
+                </div>
+                <div class="location-time">
+                    <h1 class="location">--</h1>
+                    <div class="time-date">
+                        <span class="time">--:--</span>
+                        <span class="date">--</span>
+                    </div>
+                </div>
+                <div class="condition">
+                    <img class="weather-icon" src="" alt="Weather icon">
+                    <span class="condition-text">--</span>
+                </div>
+            </div>
+            
+            <div class="detailed-info">
+                <div class="detail-card">
+                    <i class="fas fa-wind"></i>
+                    <div>
+                        <span class="label">Wind</span>
+                        <span class="wind-speed">-- km/h</span>
+                        <span class="wind-dir">--</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-tint"></i>
+                    <div>
+                        <span class="label">Humidity</span>
+                        <span class="humidity">--%</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-compress-alt"></i>
+                    <div>
+                        <span class="label">Pressure</span>
+                        <span class="pressure">-- hPa</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-eye"></i>
+                    <div>
+                        <span class="label">Visibility</span>
+                        <span class="visibility">-- km</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <form class="search-form">
+                <div class="search-input-wrapper">
+                    <input type="text" class="search-input" placeholder="Search city..." autocomplete="off">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

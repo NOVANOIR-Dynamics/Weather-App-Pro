@@ -1,0 +1,270 @@
+:root {
+    --primary: #800000;
+    --secondary: #500000;
+    --accent: #ffcc00;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --card-bg: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    min-height: 100vh;
+    color: var(--text-light);
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.weather-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.temp {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.temperature {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.unit-switcher {
+    display: flex;
+    margin-left: 10px;
+}
+
+.unit-switcher button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.unit-switcher button.active {
+    opacity: 1;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.location {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.time-date {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.condition {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.weather-icon {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.condition-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.detailed-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.detail-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--glass-border);
+}
+
+.detail-card i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.detail-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-form {
+    position: relative;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 3.5rem 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    color: var(--text-light);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    color: var(--accent);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 15px 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.search-suggestions.show {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 0.8rem 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.suggestion-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .temperature {
+        font-size: 4rem;
+    }
+    
+    .location {
+        font-size: 1.8rem;
+    }
+    
+    .detailed-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .weather-card {
+        padding: 1.5rem;
+    }
+    
+    .temperature {
+        font-size: 3.5rem;
+    }
+    
+    .detailed-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+        /* Night mode styles */
+body.night-mode {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+ }
+
+.night-mode .weather-card {
+     background: rgba(15, 23, 42, 0.3);
+}
+        
+.night-mode .detail-card {
+     background: rgba(15, 23, 42, 0.4);
+}
